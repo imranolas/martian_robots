@@ -1,4 +1,4 @@
-require_relative '../lib/grid'
+require_relative '../lib/application'
 
 describe Grid do
   subject(:grid) { Grid.new(5,3) }
