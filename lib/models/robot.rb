@@ -1,10 +1,11 @@
 class Robot
-  attr_reader :x, :y, :orientation
+  attr_reader :x, :y, :orientation, :grid
 
-  def initialize(x, y, orientation)
+  def initialize(x, y, orientation, grid)
     @x = x
     @y = y
     @orientation = orientation
+    @grid = grid
   end
 
   def coordinates
