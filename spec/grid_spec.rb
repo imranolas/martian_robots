@@ -6,4 +6,6 @@ describe Grid do
 
   its(:size) { should eq [5,3] }
 
+  its(:state) { should eq [Array.new(5)] * 3 }
+
 end

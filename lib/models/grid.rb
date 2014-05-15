@@ -1,11 +1,11 @@
 class Grid
-
+  attr_reader :state
+  
   def initialize(x,y)
-    @x = x
-    @y = y
+    @state = [Array.new(x)] * y 
   end
 
   def size
-    [@x, @y]
+    [state[0].length, state.length]
   end
 end
