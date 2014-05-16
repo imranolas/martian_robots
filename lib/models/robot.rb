@@ -32,13 +32,13 @@ class Robot
   def move_forward
     case orientation
     when 'N'
-      @y += 1
+      self.y += 1
     when 'S'
-      @y -= 1
+      self.y -= 1
     when 'W'
-      @x -= 1
+      self.x -= 1
     when 'E'
-      @x += 1
+      self.x += 1
     end
   end
 
