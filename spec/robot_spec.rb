@@ -21,6 +21,30 @@ describe Robot do
 
   its(:position) { should eq({ x: 1, y: 2, orientation: 'E'}) }
 
+  describe '#lost' do
+
+    its(:lost?) { should be_false }
+
+    it "should return false" do
+      robot.x = 6
+      robot.y = 4
+      robot.lost?.should be_true
+    end
+
+  end
+
+  describe '#update_grid' do
+
+    it "should return false" do
+      robot.x = 6
+      robot.y = 4
+      grid.coordinate(5,3).invalid_moves.should_not include 'N'
+      robot.update_grid({x: 5, y: 3, orientation: "N"})
+      grid.coordinate(5,3).invalid_moves.should include 'N'
+    end
+
+  end
+
   describe '#move' do
 
     describe "forward" do
@@ -98,6 +122,21 @@ describe Robot do
         robot.move('L')
         robot.position.should eq({x: 1, y: 2, orientation: 'N'})
       end
+    end
+  end
+
+  describe '#can_move_from' do
+
+    let(:grid) { Grid.new(5,3) }
+    subject(:robot) { Robot.new(5,3,'N',grid) }
+
+    it "should return true" do
+      robot.can_move_from?(5,3).should be_true
+    end
+
+    it "should return false" do
+      grid.coordinate(5,3).add_invalid_move('N')
+      robot.can_move_from?(5,3).should be_false
     end
   end
 end

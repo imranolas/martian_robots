@@ -1,0 +1,10 @@
+#!/usr/bin/env bundle exec ruby
+
+require_relative '../lib/application'
+
+filepath = ARGV[0] || '../input.txt'  
+file = File.open(filepath, 'r')
+
+controller = Controller.new(file)
+
+controller.run
