@@ -1,8 +1,10 @@
 #!/usr/bin/env bundle exec ruby
 
-require_relative '../lib/application'
+root = File.join(File.dirname(__FILE__), '..')
 
-filepath = ARGV[0] || '../input.txt'  
+require_relative "../lib/application"
+
+filepath = ARGV[0] || "#{root}/input.txt"
 file = File.open(filepath, 'r')
 
 controller = Controller.new(file)
